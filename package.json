@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "build/electron/main.js",
+  "main": "build/main/main.js",
   "author": "lasitha92",
   "description": "A tool to help testing your algorithm/AI skills with simple games",
   "scripts": {
@@ -11,7 +11,7 @@
     "dev:react": "vite",
     "dev:electron": "npm run build:electron && cross-env NODE_ENV=dev electron .",
     "build:react": "tsc -b && vite build",
-    "build:electron": "tsc --project src/electron/tsconfig.json",
+    "build:electron": "tsc --project src/main/tsconfig.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "release:windows": "npm run build:electron && npm run build:react && electron-builder --win --x64"
