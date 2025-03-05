@@ -1,6 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import "./App.css";
+import TicTacToe from "./src/games/tic-tac-toe/TicTacToe";
 
 function App() {
   const startTicTacToe = () => {
@@ -29,6 +30,9 @@ function App() {
               Tic Tac Toe
             </Button>
           </Col>
+        </Row>
+        <Row>
+          <TicTacToe />
         </Row>
       </Container>
     </>
