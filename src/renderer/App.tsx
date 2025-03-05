@@ -1,18 +1,36 @@
-import { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const startTicTacToe = () => {
+    console.log("Going to Tic Tac Toe");
+  };
 
   return (
     <>
-      <h1>Code Game</h1>
-      <p>A tool to help testing your algorithm/AI skills with simple games</p>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Container className="p-3 d-flex flex-column align-items-center justify-content-center min-vh-100">
+        <Row>
+          <h1>Code Game</h1>
+        </Row>
+        <Row>
+          <p>
+            A tool to help testing your algorithm/AI skills with simple games
+          </p>
+        </Row>
+        <Row>
+          <Col>
+            <Button className="game-button" onClick={() => startTicTacToe()}>
+              Tic Tac Toe
+            </Button>
+          </Col>
+          <Col>
+            <Button className="game-button" onClick={() => startTicTacToe()}>
+              Tic Tac Toe
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
