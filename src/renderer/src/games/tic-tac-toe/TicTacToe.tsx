@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import Cell from "./components/Cell";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -11,7 +11,7 @@ export default function TicTacToe() {
 
   return (
     <Container className="p-3 d-flex flex-column align-items-center justify-content-center min-vh-100">
-      <Row cla>
+      <Row>
         <div className="board">
           {board.map((_, index) => (
             <Cell key={index} />
