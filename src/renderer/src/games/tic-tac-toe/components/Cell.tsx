@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { Button } from "react-bootstrap";
 
-interface CellProps {
-  value: "X" | "O";
-}
 
-export default function Cell({ value }: CellProps) {
-  return <Button variant="outline-secondary">{value}</Button>;
+export default function Cell() {
+const [value, setValue] = useState("");
+
+  function handleClick() {
+    setValue("X");
+  }
+
+  return (
+    <Button className="w-100" variant="outline-secondary" onClick={handleClick}>
+      {value}
+    </Button>
+  );
 }
