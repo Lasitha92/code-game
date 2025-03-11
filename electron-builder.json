@@ -11,5 +11,8 @@
     },
     "win": {
         "target": ["portable", "msi"]
-    }
+    },
+    "extraResources": [
+        "build/main/preload.cjs"
+    ]
 }
