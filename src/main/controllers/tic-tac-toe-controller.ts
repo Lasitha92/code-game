@@ -5,7 +5,6 @@ export default function (window: BrowserWindow) {
   const controller = Router();
 
   controller.post("/markCell", (req, res) => {
-    console.log(req);
     const markCellRequest = req.body as MarkCellRequest;
     console.log(markCellRequest);
 

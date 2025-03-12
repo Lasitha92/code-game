@@ -2,18 +2,9 @@ import { Button, Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 function App() {
   let navigate = useNavigate();
-
-  useEffect(() => {
-    //@ts-ignore
-    window.electron.subscribeToTTTEvents((e: any) => {
-      console.log("Received: ", e);
-    })
-  })
-
 
   const startTicTacToe = () => {
     navigate("/tic-tac-toe");
