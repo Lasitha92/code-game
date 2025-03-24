@@ -9,21 +9,36 @@ export default function TicTacToe() {
 
   const navigate = useNavigate();
 
+  const eventHandler = (e: any) => {
+    const cellNumber = e.cell.row * 3 + e.cell.column;
+
+    const newBoard = board.map((_, i) =>
+      i === cellNumber ? e.mark : board[i],
+    );
+
+    setBoard(newBoard);
+  };
+
+
   useEffect(() => {
+    const handleRequest = () => {
+        //@ts-ignore
+        window.gameTTT.respondAllCells([...board]);
+    };
     //@ts-ignore
-    window.electron.subscribeToTTTEvents((e: any) => {
-      const cellNumber = e.cell.row * 3 + e.cell.column;
+    window.gameTTT.subscribeToTTTEvents(eventHandler);
 
-      const newBoard = board.map((_, i) => {
-        if (i == cellNumber) {
-          return e.mark;
-        }
-        return board[i];
-      });
+    //@ts-ignore
+    window.gameTTT.onRequestAllCells(handleRequest);
 
-      setBoard(newBoard);
-    });
-  });
+    return () => {
+      console.log("Cleaning up listeners");
+      //@ts-ignore
+      window.gameTTT.onRequestAllCells(() => {});
+    }
+
+    
+  }, [board]);
 
   return (
     <Container className="p-3 d-flex flex-column align-items-center justify-content-center min-vh-100">
