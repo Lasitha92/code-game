@@ -19,25 +19,16 @@ export default function TicTacToe() {
     setBoard(newBoard);
   };
 
-
   useEffect(() => {
     const handleRequest = () => {
-        //@ts-ignore
-        window.gameTTT.respondAllCells([...board]);
+      window.gameTTT.respondAllCells([...board]);
     };
-    //@ts-ignore
     window.gameTTT.subscribeToTTTEvents(eventHandler);
-
-    //@ts-ignore
     window.gameTTT.onRequestAllCells(handleRequest);
 
     return () => {
-      console.log("Cleaning up listeners");
-      //@ts-ignore
       window.gameTTT.onRequestAllCells(() => {});
-    }
-
-    
+    };
   }, [board]);
 
   return (
